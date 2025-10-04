@@ -3,7 +3,7 @@ import string
 
 def is_number(tok):
     """Проверяет, является ли символ частью числа (цифра или точка)"""
-    return tok in list('0123456789.')
+    return tok in list("0123456789.")
 
 
 def get_tok(expr):
@@ -15,7 +15,7 @@ def get_tok(expr):
     expr = expr.lstrip()
 
     # Проверяем двухсимвольные операторы (** и //)
-    if expr[:2] == '**' or expr[:2] == '//':
+    if expr[:2] == "**" or expr[:2] == "//":
         return expr[:2], expr[2:]
 
     # Обработка чисел (целых и вещественных)

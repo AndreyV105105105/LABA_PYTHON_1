@@ -1,5 +1,7 @@
 import pytest
-from src.calculator import calc as calculate, ValueError
+
+from src.calculator import ValueError
+from src.calculator import calc as calculate
 
 
 class TestM2Calculator:
@@ -35,7 +37,6 @@ class TestM2Calculator:
         assert calculate("(3 + 4) * (2 - 1)") == 7
         assert calculate("(10 - (2 + 3)) * 2") == 10
         assert calculate("2 * (3 + (4 * (5 - 2)))") == 30
-
 
     def test_unary_operators_in_parentheses(self):
         """Тест унарных операторов внутри скобок"""
@@ -102,13 +103,19 @@ class TestM2Calculator:
 
     def test_integer_division_modulo_float(self):
         """Тест, что // и % работают только с целыми"""
-        with pytest.raises(ValueError, match="Операция // допустима только для целых чисел"):
+        with pytest.raises(
+            ValueError, match="Операция // допустима только для целых чисел"
+        ):
             calculate("5.5 // 2")
 
-        with pytest.raises(ValueError, match="Операция % допустима только для целых чисел"):
+        with pytest.raises(
+            ValueError, match="Операция % допустима только для целых чисел"
+        ):
             calculate("5.5 % 2")
 
-        with pytest.raises(ValueError, match="Операция // допустима только для целых чисел"):
+        with pytest.raises(
+            ValueError, match="Операция // допустима только для целых чисел"
+        ):
             calculate("(5.5) // 2")
 
     def test_unbalanced_parentheses(self):
@@ -166,7 +173,6 @@ class TestM2Calculator:
         assert calculate("( 2 + 3 ) * 4") == 20
         assert calculate("( -3 )") == -3
         assert calculate("(  +  2  )") == 2
-
 
 
 if __name__ == "__main__":

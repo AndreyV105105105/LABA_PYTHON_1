@@ -1,7 +1,7 @@
 #! env python3
 
-from src.shunting_yard import translate_indx_to_rpn
-from src.shunting_yard import is_op
+from src.shunting_yard import is_op, translate_indx_to_rpn
+
 
 def calc(expr):
     """
